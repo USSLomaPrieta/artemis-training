@@ -1,0 +1,213 @@
+<mission_data version="1.7" background_id_arme="">
+  <!--All the things that start in the beginning.-->
+  <start name_arme="Start">
+    <create type="player" x="27014.0" y="0.0" z="67328.0" angle="0" name="Artemis" />
+    <set_difficulty_level value="5" />
+    <set_skybox_index index="9" />
+    <big_message title="Artemis Training Mission" subtitle1="Brought to you by: Battlestations" subtitle2="Special thanks to WeWork" />
+    <set_timer name="start_mission_timer_1" seconds="10" />
+    <set_variable name="chapter_1" value="1" />
+    <set_variable name="HelmA" value="0.0" />
+    <set_variable name="ScienceA" value="0.0" />
+    <set_variable name="CommunicationsA" value="0.0" />
+    <set_variable name="WeaponsA" value="0.0" />
+    <set_variable name="EngineeringA" value="0.0" />
+    <create count="200" type="nebulas" startAngle="38" endAngle="231" startX="75344.0" startY="0.0" startZ="24656.0" radius="31321" randomRange="3000" randomSeed="64566546" />
+    <set_variable name="create" value="0.0" />
+    <create type="station" x="62378.0" y="0.0" z="36090.0" angle="0" name="K-7" raceKeys="friendly" hullKeys="base" />
+  </start>
+  <!--Station Hints/Tricks-->
+  <!--*****Engineering*****-->
+  <event name_arme="Engineering A" id_arme="296455a1-7f0f-4dd3-ae8a-fdc18ad9926a">
+    <if_variable name="EngineeringA" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="start_mission_timer_1" />
+    <warning_popup_message message="You are ENGINEERING. You have the ability to add and subtract power from various systems." consoles="E">You are ENGINEERING. You^have the ability to add and^subtract power from various systems.</warning_popup_message>
+    <set_variable name="EngineeringA" value="1.0" />
+    <set_variable name="EngineeringB" value="0.0" />
+    <set_timer name="TA" seconds="20" />
+  </event>
+  <event name_arme="Engineering B" id_arme="e622e447-5771-45d8-9ba1-b57f573cf499">
+    <if_variable name="EngineeringA" comparator="EQUALS" value="1.0" />
+    <if_variable name="EngineeringB" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TA" />
+    <warning_popup_message message="When damage occurs, you can also direct DAMCON teams to certain areas by clicking the dots on the ship." consoles="E" />
+    <set_variable name="EngineeringB" value="1.0" />
+    <set_variable name="EngineeringC" value="0.0" />
+    <set_timer name="TB" seconds="30" />
+  </event>
+  <event name_arme="Engineering C" id_arme="b79d1911-d293-4fe4-92f9-51328fecc28a">
+    <if_variable name="EngineeringB" comparator="EQUALS" value="1.0" />
+    <if_variable name="EngineeringC" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TB" />
+    <warning_popup_message message="Add power to systems by raising the slider on the green bar." consoles="E" />
+    <set_variable name="EngineeringC" value="1.0" />
+    <set_variable name="EngineeringD" value="0.0" />
+    <set_timer name="TC" seconds="30" />
+  </event>
+  <event name_arme="Engineering D" id_arme="fccd6e6f-794c-4566-9dbb-293e8a4e706a">
+    <if_variable name="EngineeringC" comparator="EQUALS" value="1.0" />
+    <if_variable name="EngineeringD" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TC" />
+    <warning_popup_message message="When you add power, you also need to add coolant so that system doesn't overheat. (The dots next to the slider.)" consoles="E" />
+    <set_variable name="EngineeringD" value="1.0" />
+    <set_timer name="TD" seconds="30" />
+  </event>
+  <!--*****Science*****-->
+  <event name_arme="ScienceA" id_arme="5db99413-885b-413a-a848-049afb2a8ac6">
+    <if_variable name="ScienceA" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="start_mission_timer_1" />
+    <warning_popup_message message="You are SCIENCE. You tell people what's out there." consoles="S">You are ENGINEERING. You^have the ability to add and^subtract power from various systems.</warning_popup_message>
+    <set_variable name="ScienceA" value="1.0" />
+    <set_variable name="ScienceB" value="0.0" />
+    <set_timer name="TA" seconds="20" />
+  </event>
+  <event name_arme="ScienceB" id_arme="ebf5382d-d70c-4e74-82dc-f6186ff218f0">
+    <if_variable name="ScienceA" comparator="EQUALS" value="1.0" />
+    <if_variable name="ScienceB" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TA" />
+    <warning_popup_message message="To find information about something, click on it and click the &quot;Scan&quot; button." consoles="S" />
+    <set_variable name="ScienceB" value="1.0" />
+    <set_variable name="ScienceC" value="0.0" />
+    <set_timer name="TB" seconds="30" />
+  </event>
+  <event name_arme="ScienceC" id_arme="eb585d66-67f7-4589-b1c4-74a6b5245b4b">
+    <if_variable name="ScienceB" comparator="EQUALS" value="1.0" />
+    <if_variable name="ScienceC" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TB" />
+    <warning_popup_message message="Click the &quot;Scan&quot; button one more time get the phaser frequency that WEAPONS will need." consoles="S" />
+    <set_variable name="ScienceC" value="1.0" />
+    <set_variable name="ScienceD" value="0.0" />
+    <set_timer name="TC" seconds="30" />
+  </event>
+  <event name_arme="ScienceD" id_arme="3c5ca8ea-bb4f-43ad-8ba3-7ac63f0d0768">
+    <if_variable name="ScienceC" comparator="EQUALS" value="1.0" />
+    <if_variable name="ScienceD" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TD" />
+    <warning_popup_message message="When you add power, you also need to add coolant so that system doesn't overheat. (The dots next to the slider.)" consoles="E" />
+    <set_variable name="ScienceD" value="1.0" />
+  </event>
+  <!--*****Communications*****-->
+  <event name_arme="CommunicationsA" id_arme="df5c2d6d-bf46-414f-8793-f365f8e06697">
+    <if_variable name="CommunicationsA" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="start_mission_timer_1" />
+    <incoming_comms_text from="STARFLEET ACADEMY">You are COMMUNICATIONS.^^You can talk to the other ^ships and space stations.</incoming_comms_text>
+    <set_variable name="CommunicationsA" value="1.0" />
+    <set_variable name="CommunicationsB" value="0.0" />
+    <set_timer name="TA" seconds="20" />
+  </event>
+  <event name_arme="CommunicationsB" id_arme="fe2cbc84-2c8a-4e7b-b21e-ff5f22607c90">
+    <if_variable name="CommunicationsA" comparator="EQUALS" value="1.0" />
+    <if_variable name="CommunicationsB" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TA" />
+    <incoming_comms_text from="STARFLEET ACADEMY">The messages you receive from^other space stations will show up here.</incoming_comms_text>
+    <set_variable name="CommunicationsB" value="1.0" />
+    <set_variable name="CommunicationsC" value="0.0" />
+    <set_timer name="TB" seconds="30" />
+  </event>
+  <event name_arme="CommunicationsC" id_arme="57919495-4ecd-4021-857b-3be1f1439d61">
+    <if_variable name="CommunicationsB" comparator="EQUALS" value="1.0" />
+    <if_variable name="CommunicationsC" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TB" />
+    <incoming_comms_text from="STARFLEET ACADEMY">Hit the "Transmit" button to ^select who you want to send ^a message to.</incoming_comms_text>
+    <set_variable name="CommunicationsC" value="1.0" />
+    <set_variable name="CommunicationsD" value="0.0" />
+    <set_timer name="TC" seconds="30" />
+  </event>
+  <event name_arme="CommunicationsD" id_arme="de180f49-8458-4854-a275-48d11ad3ac1d">
+    <if_variable name="CommunicationsC" comparator="EQUALS" value="1.0" />
+    <if_variable name="CommunicationsD" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TC" />
+    <incoming_comms_text from="STARFLEET ACADEMY">You can also request enemy ^ships to surrender!</incoming_comms_text>
+    <set_variable name="CommunicationsD" value="1.0" />
+  </event>
+  <!--*****Weapons*****-->
+  <event name_arme="WeaponsA" id_arme="50266efa-bf4a-4ae1-aa27-1e9653cbc2c2">
+    <if_variable name="WeaponsA" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="start_mission_timer_1" />
+    <warning_popup_message message="You are WEAPONS. You give the ship purpose." consoles="W">You are COMMUNICATIONS.^^You can talk to the other ^ships and space stations.</warning_popup_message>
+    <set_variable name="WeaponsA" value="1.0" />
+    <set_variable name="WeaponsB" value="0.0" />
+    <set_timer name="TA" seconds="20" />
+  </event>
+  <event name_arme="WeaponsB" id_arme="41bb8ca8-551c-49b4-bfe9-457826b6d219">
+    <if_variable name="WeaponsA" comparator="EQUALS" value="1.0" />
+    <if_variable name="WeaponsB" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TA" />
+    <warning_popup_message message="You should always have something loaded in the torpedo bays." consoles="W">The messages you receive from^other space stations will show up here.</warning_popup_message>
+    <set_variable name="WeaponsB" value="1.0" />
+    <set_variable name="WeaponsC" value="0.0" />
+    <set_timer name="TB" seconds="30" />
+  </event>
+  <event name_arme="WeaponsC" id_arme="d5156f8f-bcf2-434d-a383-9bd038816940">
+    <if_variable name="WeaponsB" comparator="EQUALS" value="1.0" />
+    <if_variable name="WeaponsC" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TB" />
+    <warning_popup_message message="You target the enemy ships by clicking on them." consoles="W">Hit the "Transmit" button to ^select who you want to send ^a message to.</warning_popup_message>
+    <set_variable name="WeaponsC" value="1.0" />
+    <set_variable name="WeaponsD" value="0.0" />
+    <set_timer name="TC" seconds="30" />
+  </event>
+  <event name_arme="WeaponsD" id_arme="8d9654f9-3689-4a1c-97a3-b87371015714">
+    <if_variable name="WeaponsC" comparator="EQUALS" value="1.0" />
+    <if_variable name="WeaponsD" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TC" />
+    <warning_popup_message message="Adust phaser frequency for more effective shots. You get those frequencies from SCIENCE." consoles="W">You can also request enemy ^ships to surrender!</warning_popup_message>
+    <set_variable name="WeaponsD" value="1.0" />
+  </event>
+  <!--*****Helm*****-->
+  <event name_arme="HelmA" id_arme="5950ab5f-a046-42a9-b61a-71ca6edfaab6">
+    <if_variable name="HelmA" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="start_mission_timer_1" />
+    <warning_popup_message message="You are HELM. You steer the ship." consoles="H">You are COMMUNICATIONS.^^You can talk to the other ^ships and space stations.</warning_popup_message>
+    <set_variable name="HelmA" value="1.0" />
+    <set_variable name="HelmB" value="0.0" />
+    <set_timer name="TA" seconds="20" />
+  </event>
+  <event name_arme="HelmB" id_arme="3df6b359-4343-4cac-9dc8-abd958239e84">
+    <if_variable name="HelmA" comparator="EQUALS" value="1.0" />
+    <if_variable name="HelmB" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TA" />
+    <warning_popup_message message="Directions are marked in a 360 degree radius." consoles="H">The messages you receive from^other space stations will show up here.</warning_popup_message>
+    <set_variable name="HelmB" value="1.0" />
+    <set_variable name="HelmC" value="0.0" />
+    <set_timer name="TB" seconds="30" />
+  </event>
+  <event name_arme="HelmC" id_arme="5606e304-6551-402d-aca5-73df2fb4f524">
+    <if_variable name="HelmB" comparator="EQUALS" value="1.0" />
+    <if_variable name="HelmC" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TB" />
+    <warning_popup_message message="Moving the warp slider makes the ship go very fast.  Moving the Impulse slider just makes the ship go." consoles="H">Hit the "Transmit" button to ^select who you want to send ^a message to.</warning_popup_message>
+    <set_variable name="HelmC" value="1.0" />
+    <set_variable name="HelmD" value="0.0" />
+    <set_timer name="TC" seconds="30" />
+  </event>
+  <event name_arme="HelmD" id_arme="f6512855-4ade-41f5-ae6d-5a0c8996c052">
+    <if_variable name="HelmC" comparator="EQUALS" value="1.0" />
+    <if_variable name="HelmD" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TC" />
+    <warning_popup_message message="You can change the views on the main viewscreen by selecting one from the top right of the screen." consoles="H">You can also request enemy ^ships to surrender!</warning_popup_message>
+    <set_variable name="HelmD" value="1.0" />
+  </event>
+  <!--Now the fun stuff begns.-->
+  <event name_arme="Bad guys get created" id_arme="ef01ba68-40ee-4032-aabc-27a7599467ee">
+    <if_variable name="create" comparator="EQUALS" value="0.0" />
+    <if_timer_finished name="TD" />
+    <big_message title="Now for some fun." subtitle1="Let's see what you've learned." subtitle2="" />
+    <create type="enemy" x="62866.0" y="20.0" z="35640.0" angle="135.9" name="IKS BAMF" hullID="2000" fleetnumber="1" />
+    <add_ai type="ATTACK" targetName="K-7" value1="1.0" name="IKS BAMF" />
+    <set_variable name="chase" value="0.0" />
+    <set_variable name="create" value="1.0" />
+  </event>
+  <event name_arme="Bad guy chases player" id_arme="b5be9741-f02f-425c-9332-3dfcd206b589">
+    <if_distance name1="Artemis" name2="K-7" comparator="LESS_EQUAL" value="3000.0" />
+    <if_variable name="chase" comparator="EQUALS" value="0.0" />
+    <clear_ai name="IKS BAMF" />
+    <add_ai type="ATTACK" targetName="Artemis" value1="1.0" name="IKS BAMF" />
+    <set_variable name="chase" value="1.0" />
+  </event>
+  <event name_arme="End the mission" id_arme="c19b440b-e692-4a1e-998c-6c24c86ddd2c">
+    <if_variable name="chase" comparator="EQUALS" value="1.0" />
+    <if_not_exists name="IKS BAMF" />
+    <end_mission />
+  </event>
+</mission_data>
